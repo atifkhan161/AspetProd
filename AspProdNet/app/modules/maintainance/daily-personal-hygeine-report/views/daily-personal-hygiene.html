@@ -1,0 +1,117 @@
+﻿<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div id="divHd1" class="panel-heading">Daily Personal Hygiene Report</div>
+        <div class="panel-body">
+            <div class="col-xs-12">
+                <div class="col-xs-5">
+                    <ng-jqgrid config="config" addnew="true" modeldata="patientdata" gridid="patientgrid" pagerid="patientpager" api="gridapi"></ng-jqgrid>
+                </div>
+                <div class="col-xs-7">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>Name the Personnel:</label>
+                                    <input id="txtName" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>Date:</label>
+                                    <input id="txtDt" type="date" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>Shift:</label>
+                                    <select id="ddlShift" class="form-control" name="dmail" required>
+                                        <option value="1">Day</option>
+                                        <option value="2">Night</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>Check By*:</label>
+                                    <select id="ddlchkBy" class="form-control ddlchkBy" name="dmail" required="required"></select>
+                                </div>
+                            </div>
+                            <fieldset class="col-xs-12">
+                                <div class="col-xs-4">
+                                    <div class="checkbox">
+                                        <label class="input-sm">
+                                            <input id="chkClothes" type="checkbox" />Clean Clothes & Body
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="checkbox">
+                                        <label class="input-sm">
+                                            <input id="chkHair" type="checkbox" />Hair Beard
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="checkbox">
+                                        <label class="input-sm">
+                                            <input id="chkNails" type="checkbox" />Nails
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="checkbox">
+                                        <label class="input-sm">
+                                            <input id="chkCuts" type="checkbox" />Cuts & Wounds
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="checkbox">
+                                        <label class="input-sm">
+                                            <input id="chkCough" type="checkbox" />Coughing & Sneezing
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="checkbox">
+                                        <label class="input-sm">
+                                            <input id="chkHair" type="checkbox" />Perfume & Jewellery
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="checkbox">
+                                        <label class="input-sm">
+                                            <input id="chkEat" type="checkbox" />Eating, Spitting, Chewing & Smoking
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="checkbox">
+                                        <label class="input-sm">
+                                            <input id="chkApron" type="checkbox" />Apron, Caps, Mask & Gloves
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>Remarks:</label>
+                                    <textarea id="dvAction" rows="3" class="form-control dvResult"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <input type="button" class="btn btn-success" value="Save" id="btnSave" onclick="Save()" />
+                                <input type="button" class="btn btn-info" value="Update" id="btnUpdate" onclick="Update()" disabled="disabled" />
+                                <input type="button" class="btn btn-danger" value="Delete" id="btnDelete" onclick="Delete()" disabled="disabled" />
+                                <input type="button" class="btn btn-primary" value="New" id="btnNew" onclick="New()" disabled="disabled" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

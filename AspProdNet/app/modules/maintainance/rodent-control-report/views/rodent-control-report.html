@@ -1,0 +1,68 @@
+﻿
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div id="divHd1" class="panel-heading">Rodent Control Log Book</div>
+        <div class="panel-body">
+            <div class="col-xs-12">
+                <div class="col-xs-5">
+                    <ng-jqgrid config="config" addnew="true" modeldata="patientdata" gridid="patientgrid" pagerid="patientpager" api="gridapi"></ng-jqgrid>
+                </div>
+                <div class="col-xs-7">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>Road Box No:</label>
+                                    <input id="txtRdBoxNo" type="number" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>Outer Area/Plant Area:</label>
+                                    <input id="txtArea" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>Zone:</label>
+                                    <input id="txtZone" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>Department/Location:</label>
+                                    <input id="txtDept" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>No. of Rats Trapped:</label>
+                                    <input id="txtRatsTrap" type="number" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label>Check By*:</label>
+                                    <select id="ddlchkBy" class="form-control ddlchkBy" name="dmail" required="required"></select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>Action Taken:</label>
+                                    <textarea id="dvAction" rows="4" class="form-control dvResult"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <input type="button" class="btn btn-success" value="Save" id="btnSave" onclick="Save()" />
+                                <input type="button" class="btn btn-info" value="Update" id="btnUpdate" onclick="Update()" disabled="disabled" />
+                                <input type="button" class="btn btn-danger" value="Delete" id="btnDelete" onclick="Delete()" disabled="disabled" />
+                                <input type="button" class="btn btn-primary" value="New" id="btnNew" onclick="New()" disabled="disabled" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿<div class="header-search common-search">
+    <div class="input-group stylish-input-group ">
+        <span class="open">
+            <span class="search-icon" ng-click="searchPatient()" ng-disabled="disableInput"></span>
+            <div class="uib-dropdown-menu header-doropdown search-dropdown-main dropdown-menu" ng-show="searchShow">
+                <ul class="searchbox ss-container">
+                    <li ng-repeat="elm in patientList track by $index" ng-click="selectPatient(elm.Id,elm.FirstName,elm.LastName)">
+                        {{elm.FirstName}} {{elm.LastName}}
+                        <div>DOB:{{elm.DateOfBirth | date:'MM-dd-yyyy'}}</div>
+                    </li>
+                    <li ng-if="patientList.length==0">                       
+                        <div>{{status}}</div>
+                    </li>
+                </ul>                
+            </div>
+        </span>
+        <input type="text" class="form-control" placeholder="Search" ng-model="keywords" ng-disabled="disableInput" ng-keyup="$event.keyCode == 13 || keywords.length>2 ? searchPatient() : null" ng-change="searchReset()">
+
+    </div>
+</div>

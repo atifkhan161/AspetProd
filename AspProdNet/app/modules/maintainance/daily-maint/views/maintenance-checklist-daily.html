@@ -1,0 +1,90 @@
+﻿
+<h4><b>Maintenance Checklist (Daily)</b></h4>
+<h6><b>Responsibility: Technician/Engineer</b></h6>
+<hr style="color:red" />
+<div class="col-xs-12">
+    <div class="col-xs-4">
+        <div class="form-group">
+            <label>M/C Name:</label>
+            <select id="ddlMcName" class="form-control" name="dmail" required>
+                <option value="1">AIR COMPRESSOR</option>
+                <option value="2">DRYER</option>
+                <option value="3">MOLD DEHUMIDIFIER</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="form-group">
+            <label>Code:</label>
+            <input id="txtCode" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="col-xs-12 ">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Check Points</th>
+                        
+                        <th ng-repeat="n in _.range(1,31)" ng-bind="n"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Clean the m/c cabinet</td>
+                        <td ng-repeat="n in _.range(30)"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Check the Air Dryer Temperature(0 to 3* c)</td>
+                        <td ng-repeat="n in _.range(30)"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Check the pressure Gauge(8 to 10.5 Bar)</td>
+                        <td ng-repeat="n in _.range(30)"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Check the Air leakage</td>
+                        <td ng-repeat="n in _.range(30)"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Check the oil level</td>
+                        <td ng-repeat="n in _.range(30)"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Check the air filter</td>
+                        <td ng-repeat="n in _.range(30)"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Check the oil filter</td>
+                        <td ng-repeat="n in _.range(30)"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Check the unwanted noise inside the compressor</td>
+                        <td ng-repeat="n in _.range(30)"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Drain the water from Air Receiver Tank</td>
+                        <td ng-repeat="n in _.range(30)"><input type="checkbox" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12" style="margin-top:10px">
+        <input type="button" class="btn btn-success" value="Save" id="btnSave" onclick="Save()" />
+        <input type="button" class="btn btn-info" value="Update" id="btnUpdate" onclick="Update()" disabled="disabled" />
+        <input type="button" class="btn btn-danger" value="Delete" id="btnDelete" onclick="Delete()" disabled="disabled" />
+        <input type="button" class="btn btn-primary" value="New" id="btnNew" onclick="New()" disabled="disabled" />
+    </div>
+</div>
+

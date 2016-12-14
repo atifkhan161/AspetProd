@@ -1,0 +1,228 @@
+body {
+    background-color: #D3DADF;
+}
+
+.iconsContainer {
+    /*width: 940px;*/
+    height: auto;
+    margin: 10px auto 0 auto;
+}
+
+.icon, .icon__settings, .icon__shows, .icon__music {
+    position: relative;
+    display: inline-block;
+    /*width: 280px;*/
+    height: 150px;
+    cursor: pointer;
+    margin-right: 1%;
+    opacity: 0.8;
+    margin-bottom:10px;
+}
+
+    .icon__music:hover {
+        opacity: 1;
+    }
+
+    .icon:last-child, .icon__settings:last-child, .icon__shows:last-child, .icon__music:last-child {
+        margin-right: 0px;
+    }
+
+.icon--component, .icon__shows--text, .icon__shows--text2, .icon__music--glyph {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.base, .icon__settings--base, .icon__shows--base, .icon__music--base {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.shadow, .icon__settings .shadow, .icon__shows .shadow, .icon__music .shadow {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    background-color: rgba(0, 0, 0, 0.3);
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    z-index: -1;
+}
+
+.glow, .icon__settings--base .glow, .icon__shows--base .glow, .icon__music--base .glow {
+    position: absolute;
+    top: -15px;
+    left: -70px;
+    width: 0%;
+    height: 0%;
+    border-radius: 100%;
+    background: radial-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
+    z-index: 5;
+}
+
+.icon__settings--base {
+    background-image: linear-gradient(-180deg, #DDDEDE 0%, #8C8E93 100%);
+}
+
+    .icon__settings--base .glow {
+        background: radial-gradient(rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 60%);
+    }
+
+.icon__settings--cog1 {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    top: 15px;
+    left: 80px;
+    border-radius: 100%;
+    background-color: #5F5D60;
+    z-index: 2;
+}
+
+.icon__settings--cog2 {
+    position: absolute;
+    top: 27px;
+    left: 92px;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    background-image: url("../images/Big Geared Wheel.png");
+    z-index: 3;
+}
+
+.icon__settings--cog3 {
+    position: absolute;
+    top: 45px;
+    left: 110px;
+    height: 63px;
+    width: 63px;
+    border-radius: 100%;
+    background-image: url("../images/Smaller Geared Wheel.png");
+    z-index: 4;
+}
+
+.icon__shows--base {
+    background-image: linear-gradient(-180deg, #4DAEF2 0%, #132D81 100%);
+}
+
+.icon__shows--text {
+    left: 60px;
+    top: 40px;
+    font-family: 'Helvetica Neue';
+    color: #FFFFFF;
+    font-size: 2.3em;
+    z-index: 4;
+}
+
+.icon__shows--text2 {
+    left: 20%;
+    top: 100px;
+    font-family: inherit;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: larger;
+    z-index: 4;
+}
+
+.icon__music--base {
+    background-image: linear-gradient(-180deg, #55EFCB 0%, #5BCAFF 100%);
+}
+
+.icon__music--glyph {
+    top: 15%;
+    left: 35%;
+    width: 100px;
+    height: 100px;
+    /*background-image: url("../images/icon_music.png");*/
+    background-image: url('images/company-logo - Copy.png');
+    z-index: 2;
+    background-repeat: no-repeat;
+    /*-webkit-transition: top 15s ease-in;
+    -moz-transition: top 15s ease-in;
+    -o-transition: top 15s ease-in;
+    -ms-transition: top 15s ease-in;
+    transition: top 15s ease-in;*/
+    /*opacity:1;*/
+}
+
+    .icon__music--glyph:hover {
+        cursor: pointer;
+        /*-webkit-transition: top 10s ease-in-out;
+    -moz-transition: top 10s ease-in-out;
+    -o-transition: top 10s ease-in-out;
+    -ms-transition: top 10s ease-in-out;
+    transition: top 10s ease-in-out;*/
+        /*opacity:0.5;*/
+    }
+/*# sourceMappingURL=styles.css.map */
+
+/*
+ Tiles colors ,look and fill*/
+.tileBlue {
+    background: linear-gradient(to bottom right, #508DE7 0%, #023b70 100%);
+    background: -prefix-linear-gradient(bottom right, #508DE7 0%, #023b70 100%);
+    background-image: -ms-linear-gradient(bottom right, #508DE7 0%, #023b70 100%);
+    background-image: -webkit-linear-gradient(bottom right, #508DE7 0%, #023b70 100%);
+}
+
+.tileSky {
+    background: linear-gradient(to bottom right, #00dbe9, #008080);
+    background: -prefix-linear-gradient(bottom right, #00dbe9 0%, #008080 100%);
+    background-image: -ms-linear-gradient(bottom right, #00dbe9 0%, #008080 100%);
+    background-image: -webkit-linear-gradient(bottom right, #00dbe9 0%, #008080 100%);
+}
+
+.tileLGreen {
+    background: linear-gradient(to bottom right, #00E4A6, #008A66);
+    background: -prefix-linear-gradient(bottom right, #00E4A6 0%, #008A66 100%);
+    background-image: -ms-linear-gradient(bottom right, #00E4A6 0%, #008A66 100%);
+    background-image: -webkit-linear-gradient(bottom right, #00E4A6 0%, #008A66 100%);
+}
+
+.tilePurple {
+    background: linear-gradient(to bottom right, #B04EAB, #6B2F69);
+    background: -prefix-linear-gradient(bottom right, #B04EAB 0%, #6B2F69 100%);
+    background-image: -ms-linear-gradient(bottom right, #B04EAB 0%, #6B2F69 100%);
+    background-image: -webkit-linear-gradient(bottom right, #B04EAB 0%, #6B2F69 100%);
+}
+
+.tileCrim {
+    background: linear-gradient(to bottom right, #F04C7A, #C51144);
+    background: -prefix-linear-gradient(bottom right, #F04C7A 0%, #C51144 100%);
+    background-image: -ms-linear-gradient(bottom right, #F04C7A 0%, #C51144 100%);
+    background-image: -webkit-linear-gradient(bottom right, #F04C7A 0%, #C51144 100%);
+}
+
+.tileGrey {
+    background: linear-gradient(to bottom right, #A9ACAF, #52575D);
+    background: -prefix-linear-gradient(bottom right, #A9ACAF 0%, #52575D 100%);
+    background-image: -ms-linear-gradient(bottom right, #A9ACAF 0%, #52575D 100%);
+    background-image: -webkit-linear-gradient(bottom right, #A9ACAF 0%, #52575D 100%);
+}
+
+.tileVoilet {
+    background: linear-gradient(to bottom right, #7A5BCC, #432987);
+    background: -prefix-linear-gradient(bottom right, #7A5BCC 0%, #432987 100%);
+    background-image: -ms-linear-gradient(bottom right, #7A5BCC 0%, #432987 100%);
+    background-image: -webkit-linear-gradient(bottom right, #7A5BCC 0%, #432987 100%);
+}
+
+.tileOrange {
+    background: linear-gradient(to bottom right, #CE8922, #CE4B22);
+    background: -prefix-linear-gradient(bottom right, #CE8922 0%, #CE4B22 100%);
+    background-image: -ms-linear-gradient(bottom right, #CE8922 0%, #CE4B22 100%);
+    background-image: -webkit-linear-gradient(bottom right, #CE8922 0%, #CE4B22 100%);
+}
+
+.tileGreen {
+    background: linear-gradient(to bottom right, #66b966, #199619);
+    background: -prefix-linear-gradient(bottom right, #66b966 0%, #199619 100%);
+    background-image: -ms-linear-gradient(bottom right, #66b966 0%, #199619 100%);
+    background-image: -webkit-linear-gradient(bottom right, #66b966 0%, #199619 100%);
+}

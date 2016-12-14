@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="no-js" >
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title >EngageMD</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../Content/AppLeIcons.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/bootstrap-dialog.css" rel="stylesheet" />
+    <link href="../Content/csshover.css" rel="stylesheet" />
+
+    <link href="../Content/ui.jqgrid.css" rel="stylesheet" />
+    <link href="../Content/redmond/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css" />
+
+
+    <style>
+        body {
+            background-color: honeydew;
+        }
+
+        nav > a > img {
+            display: block;
+            margin: 0 auto 5px auto;
+        }
+
+        nav > a {
+            color: black;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        nav img {
+            height: 36px;
+        }
+
+        nav > a {
+            padding: 7px 3px 5px 3px;
+            margin: 0;
+            display: inline-block;
+            z-index: inherit;
+            cursor: pointer;
+            height: auto;
+            width: 95px;
+            -webkit-transition: background 100ms ease-in;
+            -moz-transition: background 100ms ease-in;
+            -o-transition: background 100ms ease-in;
+            -ms-transition: background 100ms ease-in;
+            transition: background 100ms ease-in;
+        }
+
+        legend {
+            border-bottom: 1px solid darkgoldenrod;
+        }
+
+        #dvIcons > fieldset {
+            margin-top: 20px;
+        }
+         #spinner {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display:none;
+            background: url(../Content/images/486.GIF) center no-repeat #fff;
+            opacity: 1;
+        }
+    </style>
+
+    <link href="libs/angular-bootstrap/0.14.1/css/ui-bootstrap-csp.css" rel="stylesheet" />
+    <link href="libs/angular-bootstrap-colorpicker/3.0.24/css/colorpicker.css" rel="stylesheet" />
+    <!--<link href="libs/fullcalendar/2.3.1/css/fullcalendar.min.css" rel="stylesheet" />-->
+    <link href="libs/angular-loading-bar/css/loading-bar.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!--<link href="libs/textAngular/1.5.0/css/textAngular.css" rel="stylesheet" />-->
+    <!--<link href="libs/angular-chart.js/0.9.0/css/angular-chart.min.css" rel="stylesheet">-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500|Roboto+Condensed|Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="content/style.css" rel="stylesheet" />
+</head>
+<body style="overflow:auto;background: #f2f3f3;">
+    <block-spinner></block-spinner>
+    <!--<h1 ng-controller="AppContrl" ng-bind="displayMsg"></h1>-->
+    <div ui-view style="height:100%;width:100%"></div>
+    <!--<headerbar></headerbar>-->
+    <script data-main="main" src="libs/requirejs/2.1.22/js/require.js"></script>
+</body>
+</html>

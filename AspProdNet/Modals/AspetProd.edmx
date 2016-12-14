@@ -1,0 +1,1626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AspetProdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BagConsumption">
+          <Key>
+            <PropertyRef Name="wBagId" />
+          </Key>
+          <Property Name="wBagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="sMaterial" Type="nvarchar(max)" />
+          <Property Name="wMaterialId" Type="int" />
+          <Property Name="wShift" Type="int" />
+          <Property Name="wShiftUserId" Type="int" />
+          <Property Name="wCheckedBy" Type="int" />
+          <Property Name="wOperator" Type="int" />
+          <Property Name="sType" Type="nvarchar(max)" />
+          <Property Name="MachineNo" Type="int" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="wBrandId" />
+          </Key>
+          <Property Name="wBrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="wColorId" />
+          </Key>
+          <Property Name="wColorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ColorShade" Type="nvarchar(max)" />
+          <Property Name="wSupplierId" Type="int" />
+          <Property Name="TruckNo" Type="nvarchar(max)" />
+          <Property Name="Quatity" Type="int" />
+          <Property Name="QType" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoBarrels" Type="int" />
+          <Property Name="ChalanNo" Type="nvarchar(max)" />
+          <Property Name="WareHouse" Type="nvarchar(max)" />
+          <Property Name="CheckBy" Type="int" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="wDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="DailyQtyComplaintRpt">
+          <Key>
+            <PropertyRef Name="wQtyComplantId" />
+          </Key>
+          <Property Name="wQtyComplantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wShiftId" Type="int" />
+          <Property Name="sShift" Type="nvarchar" MaxLength="50" />
+          <Property Name="wMCno" Type="int" />
+          <Property Name="Product" Type="nvarchar(max)" />
+          <Property Name="Weight" Type="nvarchar(max)" />
+          <Property Name="color" Type="nvarchar(max)" />
+          <Property Name="Troubles" Type="nvarchar(max)" />
+          <Property Name="CheckBy" Type="int" />
+          <Property Name="ReportingTo" Type="nvarchar(max)" />
+          <Property Name="ReportingTime" Type="datetime" />
+          <Property Name="wInspectedId" Type="int" />
+          <Property Name="solvedTime" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="wDateTime" Type="datetime" />
+          <Property Name="sRemarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DailyWeight">
+          <Key>
+            <PropertyRef Name="wDWId" />
+          </Key>
+          <Property Name="wDWId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="sProduct" Type="nvarchar(max)" />
+          <Property Name="colour" Type="nvarchar(max)" />
+          <Property Name="ACheckedBy" Type="int" />
+          <Property Name="BCheckedBy" Type="int" />
+          <Property Name="CCheckedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="DefectCode">
+          <Key>
+            <PropertyRef Name="wDefectCodeId" />
+          </Key>
+          <Property Name="wDefectCodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Defect" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DWCavity">
+          <Key>
+            <PropertyRef Name="wCavityId" />
+          </Key>
+          <Property Name="wCavityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wCavityNo" Type="int" />
+          <Property Name="wDWId" Type="int" />
+          <Property Name="AWeight" Type="int" />
+          <Property Name="BWeight" Type="int" />
+          <Property Name="CWeight" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="wEmployeeId" />
+          </Key>
+          <Property Name="wEmployeeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Contact" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Ciity" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="wPosId" Type="int" />
+        </EntityType>
+        <EntityType Name="LogSheet">
+          <Key>
+            <PropertyRef Name="wSheeetId" />
+          </Key>
+          <Property Name="wSheeetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wLogId" Type="int" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="RegretionR" Type="nvarchar(max)" />
+          <Property Name="RegrationL" Type="nvarchar(max)" />
+          <Property Name="ProcessS" Type="nvarchar(max)" />
+          <Property Name="ProcessA" Type="nvarchar(max)" />
+          <Property Name="DewS" Type="nvarchar(max)" />
+          <Property Name="DewA" Type="nvarchar(max)" />
+          <Property Name="DHDewS" Type="nvarchar(max)" />
+          <Property Name="DHDewA" Type="nvarchar(max)" />
+          <Property Name="PressureIn" Type="nvarchar(max)" />
+          <Property Name="PressureOUT" Type="nvarchar(max)" />
+          <Property Name="PressureLp" Type="nvarchar(max)" />
+          <Property Name="PressureHp" Type="nvarchar(max)" />
+          <Property Name="CoolingTemp" Type="nvarchar(max)" />
+          <Property Name="ACPressureLOad" Type="nvarchar(max)" />
+          <Property Name="ACPressureUnload" Type="nvarchar(max)" />
+          <Property Name="CTPTExmo" Type="nvarchar(max)" />
+          <Property Name="CTPBar" Type="nvarchar(max)" />
+          <Property Name="PhaseVolts" Type="nvarchar(max)" />
+          <Property Name="ShoutConter" Type="nvarchar(max)" />
+          <Property Name="Quality" Type="nvarchar(max)" />
+          <Property Name="Operator" Type="int" />
+        </EntityType>
+        <EntityType Name="Machinery">
+          <Key>
+            <PropertyRef Name="wMachineryId" />
+          </Key>
+          <Property Name="wMachineryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="wSupplierId" Type="int" />
+          <Property Name="TruckNo" Type="nvarchar(max)" />
+          <Property Name="Quatity" Type="int" />
+          <Property Name="QType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChalanNo" Type="nvarchar(max)" />
+          <Property Name="CheckBy" Type="int" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="wDateTime" Type="datetime2" Precision="7" />
+          <Property Name="TransportDetails" Type="nvarchar(max)" />
+          <Property Name="ContainerNo" Type="int" />
+          <Property Name="SealNo" Type="int" />
+          <Property Name="BrandId" Type="int" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="wMaterial" />
+          </Key>
+          <Property Name="wMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sMaterial" Type="nvarchar(max)" />
+          <Property Name="sExt" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MaterialEntry">
+          <Key>
+            <PropertyRef Name="wMaterialId" />
+          </Key>
+          <Property Name="wMaterialId" Type="int" Nullable="false" />
+          <Property Name="wTruckId" Type="int" />
+          <Property Name="wMaterial" Type="int" />
+          <Property Name="sCompany" Type="nvarchar(max)" />
+          <Property Name="wOwnType" Type="int" />
+          <Property Name="sName" Type="nvarchar(max)" />
+          <Property Name="sGrade" Type="nvarchar(max)" />
+          <Property Name="sChalan" Type="nvarchar(max)" />
+          <Property Name="sIDNO" Type="nvarchar(max)" />
+          <Property Name="dRentFrom" Type="date" />
+          <Property Name="dRentTo" Type="date" />
+          <Property Name="sQuantity" Type="nvarchar(max)" />
+          <Property Name="sTotal" Type="nvarchar(max)" />
+          <Property Name="sWareHouse" Type="nvarchar(max)" />
+          <Property Name="sVisualCheck" Type="nvarchar(max)" />
+          <Property Name="sRemark" Type="nvarchar(max)" />
+          <Property Name="wSupplierId" Type="int" />
+          <Property Name="wMaterialType" Type="int" />
+        </EntityType>
+        <EntityType Name="MaterialOther">
+          <Key>
+            <PropertyRef Name="wOtherId" />
+          </Key>
+          <Property Name="wOtherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="wSupplierId" Type="int" />
+          <Property Name="TruckNo" Type="nvarchar(max)" />
+          <Property Name="Quatity" Type="int" />
+          <Property Name="QType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChalanNo" Type="nvarchar(max)" />
+          <Property Name="CheckBy" Type="int" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="wDateTime" Type="datetime2" Precision="7" />
+          <Property Name="Stores" Type="nvarchar(max)" />
+          <Property Name="Weight" Type="int" />
+        </EntityType>
+        <EntityType Name="PackingMaterial">
+          <Key>
+            <PropertyRef Name="wPackingId" />
+          </Key>
+          <Property Name="wPackingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sType" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountOf" Type="nvarchar(max)" />
+          <Property Name="MaterialType" Type="nvarchar(max)" />
+          <Property Name="SuplierId" Type="int" />
+          <Property Name="TruckNo" Type="nvarchar(max)" />
+          <Property Name="Quatity" Type="int" />
+          <Property Name="QType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="WareHouse" Type="nvarchar(max)" />
+          <Property Name="ChalanNo" Type="nvarchar(max)" />
+          <Property Name="CheckBy" Type="int" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="wDateTime" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PDCavity">
+          <Key>
+            <PropertyRef Name="wPhyCavityId" />
+          </Key>
+          <Property Name="wPhyCavityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wPhyDimId" Type="int" />
+          <Property Name="DimWeight" Type="int" />
+          <Property Name="NeckId" Type="nvarchar(max)" />
+          <Property Name="TOTHeight" Type="nvarchar(max)" />
+          <Property Name="NeckOd" Type="nvarchar(max)" />
+          <Property Name="BodyDia" Type="nvarchar(max)" />
+          <Property Name="Bend" Type="nvarchar(max)" />
+          <Property Name="WallThickness" Type="nvarchar(max)" />
+          <Property Name="PolariseLight" Type="nvarchar(max)" />
+          <Property Name="wCavityNo" Type="int" />
+        </EntityType>
+        <EntityType Name="PhysicalReport">
+          <Key>
+            <PropertyRef Name="wPhyDimId" />
+          </Key>
+          <Property Name="wPhyDimId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="wMCNo" Type="int" />
+          <Property Name="wPerSize" Type="nvarchar(max)" />
+          <Property Name="wShiftID" Type="int" />
+          <Property Name="wMouldNo" Type="int" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="wPosId" />
+          </Key>
+          <Property Name="wPosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Position" Type="nvarchar(max)" />
+          <Property Name="sExtra" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProdHandling">
+          <Key>
+            <PropertyRef Name="wHandlingId" />
+          </Key>
+          <Property Name="wHandlingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wProductionId" Type="int" />
+          <Property Name="wBoxes" Type="int" />
+          <Property Name="wTransferBoxes" Type="int" />
+          <Property Name="wGoods" Type="int" />
+          <Property Name="dManufDate" Type="date" />
+        </EntityType>
+        <EntityType Name="ProdLog">
+          <Key>
+            <PropertyRef Name="wLogId" />
+          </Key>
+          <Property Name="wLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wProductionId" Type="int" />
+          <Property Name="wLogDate" Type="date" />
+          <Property Name="MachineHpte" Type="nvarchar(max)" />
+          <Property Name="partWt" Type="nvarchar(max)" />
+          <Property Name="sShift" Type="nvarchar" MaxLength="50" />
+          <Property Name="CycleTime" Type="nvarchar(max)" />
+          <Property Name="PerformAvg" Type="nvarchar(max)" />
+          <Property Name="ProdKg" Type="nvarchar(max)" />
+          <Property Name="Rejection" Type="nvarchar(max)" />
+          <Property Name="Lumps" Type="nvarchar(max)" />
+          <Property Name="PetMaterial" Type="nvarchar(max)" />
+          <Property Name="DownTime" Type="datetime" />
+          <Property Name="LogTime" Type="datetime" />
+          <Property Name="ColTDS" Type="nvarchar(max)" />
+          <Property Name="ColPH" Type="nvarchar(max)" />
+          <Property Name="ColTemp" Type="nvarchar(max)" />
+          <Property Name="Plant" Type="nvarchar(max)" />
+          <Property Name="Temprature" Type="nvarchar(max)" />
+          <Property Name="Humidity" Type="nvarchar(max)" />
+          <Property Name="sRemarks" Type="nvarchar(max)" />
+          <Property Name="wShiftIncharge" Type="int" />
+          <Property Name="wManager" Type="int" />
+        </EntityType>
+        <EntityType Name="Production">
+          <Key>
+            <PropertyRef Name="wProductionId" />
+          </Key>
+          <Property Name="wProductionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wMaterialId" Type="int" />
+          <Property Name="wIdNO" Type="int" />
+          <Property Name="wDate" Type="date" />
+          <Property Name="sSize" Type="nvarchar(max)" />
+          <Property Name="sGrade" Type="nvarchar(max)" />
+          <Property Name="M1rejection" Type="nvarchar(max)" />
+          <Property Name="M1Lumps" Type="nvarchar(max)" />
+          <Property Name="M2rejection" Type="nvarchar(max)" />
+          <Property Name="M2Lumps" Type="nvarchar(max)" />
+          <Property Name="wPrepairedBy" Type="int" />
+          <Property Name="wReceivedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="RawMaterial">
+          <Key>
+            <PropertyRef Name="wMaterialId" />
+          </Key>
+          <Property Name="wMaterialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sType" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountOf" Type="nvarchar(max)" />
+          <Property Name="BrandName" Type="nvarchar(max)" />
+          <Property Name="Grade" Type="nvarchar(max)" />
+          <Property Name="ChalanNo" Type="nvarchar(max)" />
+          <Property Name="wSupplierId" Type="int" />
+          <Property Name="TruckNo" Type="nvarchar(max)" />
+          <Property Name="BagQuantity" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="BagNo" Type="nvarchar(max)" />
+          <Property Name="WareHouse" Type="nvarchar(max)" />
+          <Property Name="CheckBy" Type="int" />
+          <Property Name="VisualCheckBy" Type="nvarchar(max)" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="wDateTime" Type="datetime2" Precision="7" />
+          <Property Name="BrandId" Type="int" />
+        </EntityType>
+        <EntityType Name="ReportCavity">
+          <Key>
+            <PropertyRef Name="wCavityId" />
+          </Key>
+          <Property Name="wCavityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wReportId" Type="int" />
+          <Property Name="wCavityNo" Type="int" />
+          <Property Name="wShiftId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="DimWeight" Type="int" />
+          <Property Name="TOTHeight" Type="nvarchar(max)" />
+          <Property Name="NeckId" Type="nvarchar(max)" />
+          <Property Name="NeckOd" Type="nvarchar(max)" />
+          <Property Name="BodyDia" Type="nvarchar(max)" />
+          <Property Name="Bend" Type="nvarchar(max)" />
+          <Property Name="WallThickness" Type="nvarchar(max)" />
+          <Property Name="PolariseLight" Type="nvarchar(max)" />
+          <Property Name="Weight1" Type="int" />
+          <Property Name="Weight2" Type="int" />
+          <Property Name="sExtra" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Reports">
+          <Key>
+            <PropertyRef Name="wReportId" />
+          </Key>
+          <Property Name="wReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MC" Type="nvarchar(max)" />
+          <Property Name="Product" Type="nvarchar(max)" />
+          <Property Name="wProductionId" Type="int" />
+          <Property Name="ReportDate" Type="date" />
+          <Property Name="MouldID" Type="int" />
+          <Property Name="PreformSize" Type="nvarchar(max)" />
+          <Property Name="colour" Type="nvarchar(max)" />
+          <Property Name="sExtra" Type="nvarchar(max)" />
+          <Property Name="wDefectCodeId" Type="int" />
+          <Property Name="InspectedBy" Type="int" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ResinMoistrRpt">
+          <Key>
+            <PropertyRef Name="wRsinRptId" />
+          </Key>
+          <Property Name="wRsinRptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="resinBagNo" Type="int" />
+          <Property Name="resinGrade" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvoiceNo" Type="nvarchar(max)" />
+          <Property Name="machineNo" Type="nvarchar(max)" />
+          <Property Name="Specification" Type="nvarchar(max)" />
+          <Property Name="Result" Type="nvarchar(max)" />
+          <Property Name="CheckBy" Type="int" />
+          <Property Name="freqPerLot" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="wDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="wShiftId" />
+          </Key>
+          <Property Name="wShiftId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sShift" Type="nvarchar" MaxLength="50" />
+          <Property Name="sExtra" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="stations">
+          <Key>
+            <PropertyRef Name="wStationId" />
+          </Key>
+          <Property Name="wStationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sStation" Type="nvarchar(max)" />
+          <Property Name="sExt" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="wStockId" />
+          </Key>
+          <Property Name="wStockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department" Type="nvarchar(max)" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Particulares" Type="nvarchar(max)" />
+          <Property Name="HPN" Type="int" />
+          <Property Name="Locker" Type="nvarchar(max)" />
+          <Property Name="BoxNo" Type="nvarchar(max)" />
+          <Property Name="Qty" Type="nvarchar(max)" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="wSupplierId" />
+          </Key>
+          <Property Name="wSupplierId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sSupplier" Type="nvarchar(max)" />
+          <Property Name="sExt" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="truck">
+          <Key>
+            <PropertyRef Name="wTruckId" />
+          </Key>
+          <Property Name="wTruckId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wTruckNo" Type="nvarchar(max)" />
+          <Property Name="wContainerNo" Type="int" />
+          <Property Name="wSealNo" Type="int" />
+          <Property Name="sBrandName" Type="nvarchar(max)" />
+          <Property Name="sQuantity" Type="nvarchar(max)" />
+          <Property Name="wStationId" Type="int" />
+          <Property Name="wUserId" Type="int" />
+          <Property Name="sdesc" Type="nvarchar(max)" />
+          <Property Name="sExt" Type="nvarchar(max)" />
+          <Property Name="vdate" Type="date" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="wUserId" />
+          </Key>
+          <Property Name="wUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sUser" Type="nvarchar(max)" />
+          <Property Name="sPassword" Type="nvarchar(max)" />
+          <Property Name="wRoleId" Type="int" Nullable="false" />
+          <Property Name="timestamp" Type="date" />
+          <Property Name="sEmail" Type="nvarchar(max)" />
+          <Property Name="sNotes" Type="nvarchar(max)" />
+          <Property Name="Contact" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="wRoleId" />
+          </Key>
+          <Property Name="wRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sRole" Type="nvarchar(max)" />
+          <Property Name="wLevel" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="VCavity">
+          <Key>
+            <PropertyRef Name="wVCavityId" />
+          </Key>
+          <Property Name="wVCavityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wVCavityNo" Type="int" />
+          <Property Name="sStatus1" Type="nvarchar" MaxLength="50" />
+          <Property Name="sStatus2" Type="nvarchar" MaxLength="50" />
+          <Property Name="wVisualId" Type="int" />
+          <Property Name="wDefectCodeId" Type="int" />
+        </EntityType>
+        <EntityType Name="VisualReport">
+          <Key>
+            <PropertyRef Name="wVisualId" />
+          </Key>
+          <Property Name="wVisualId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wMCno" Type="int" />
+          <Property Name="sProduct" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="wShiftId" Type="int" />
+          <Property Name="wDefectCodeId" Type="int" />
+          <Property Name="wInspectedId" Type="int" />
+          <Property Name="sNotes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="AspetProdModelStoreContainer">
+          <EntitySet Name="BagConsumption" EntityType="Self.BagConsumption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyQtyComplaintRpt" EntityType="Self.DailyQtyComplaintRpt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyWeight" EntityType="Self.DailyWeight" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DefectCode" EntityType="Self.DefectCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DWCavity" EntityType="Self.DWCavity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogSheet" EntityType="Self.LogSheet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Machinery" EntityType="Self.Machinery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialEntry" EntityType="Self.MaterialEntry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialOther" EntityType="Self.MaterialOther" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PackingMaterial" EntityType="Self.PackingMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PDCavity" EntityType="Self.PDCavity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhysicalReport" EntityType="Self.PhysicalReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdHandling" EntityType="Self.ProdHandling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdLog" EntityType="Self.ProdLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Production" EntityType="Self.Production" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RawMaterial" EntityType="Self.RawMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportCavity" EntityType="Self.ReportCavity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResinMoistrRpt" EntityType="Self.ResinMoistrRpt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shift" EntityType="Self.Shift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stations" EntityType="Self.stations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="truck" EntityType="Self.truck" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VCavity" EntityType="Self.VCavity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VisualReport" EntityType="Self.VisualReport" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AspetProdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="wBrandId" />
+          </Key>
+          <Property Name="wBrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="wColorId" />
+          </Key>
+          <Property Name="wColorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ColorShade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wSupplierId" Type="Int32" />
+          <Property Name="TruckNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Quatity" Type="Int32" />
+          <Property Name="QType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoBarrels" Type="Int32" />
+          <Property Name="ChalanNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WareHouse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CheckBy" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="wDateTime" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="DailyQtyComplaintRpt">
+          <Key>
+            <PropertyRef Name="wQtyComplantId" />
+          </Key>
+          <Property Name="wQtyComplantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wShiftId" Type="Int32" />
+          <Property Name="sShift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wMCno" Type="Int32" />
+          <Property Name="Product" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Troubles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CheckBy" Type="Int32" />
+          <Property Name="ReportingTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReportingTime" Type="DateTime" Precision="3" />
+          <Property Name="wInspectedId" Type="Int32" />
+          <Property Name="solvedTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="wDateTime" Type="DateTime" Precision="3" />
+          <Property Name="sRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DailyWeight">
+          <Key>
+            <PropertyRef Name="wDWId" />
+          </Key>
+          <Property Name="wDWId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="sProduct" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="colour" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ACheckedBy" Type="Int32" />
+          <Property Name="BCheckedBy" Type="Int32" />
+          <Property Name="CCheckedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DefectCode">
+          <Key>
+            <PropertyRef Name="wDefectCodeId" />
+          </Key>
+          <Property Name="wDefectCodeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Defect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DWCavity">
+          <Key>
+            <PropertyRef Name="wCavityId" />
+          </Key>
+          <Property Name="wCavityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wCavityNo" Type="Int32" />
+          <Property Name="wDWId" Type="Int32" />
+          <Property Name="AWeight" Type="Int32" />
+          <Property Name="BWeight" Type="Int32" />
+          <Property Name="CWeight" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="wEmployeeId" />
+          </Key>
+          <Property Name="wEmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ciity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wPosId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LogSheet">
+          <Key>
+            <PropertyRef Name="wSheeetId" />
+          </Key>
+          <Property Name="wSheeetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wLogId" Type="Int32" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="RegretionR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegrationL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DewS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DewA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DHDewS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DHDewA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PressureIn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PressureOUT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PressureLp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PressureHp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CoolingTemp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ACPressureLOad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ACPressureUnload" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CTPTExmo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CTPBar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhaseVolts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShoutConter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Quality" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Operator" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Machinery">
+          <Key>
+            <PropertyRef Name="wMachineryId" />
+          </Key>
+          <Property Name="wMachineryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wSupplierId" Type="Int32" />
+          <Property Name="TruckNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Quatity" Type="Int32" />
+          <Property Name="QType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChalanNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CheckBy" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="wDateTime" Type="DateTime" Precision="7" />
+          <Property Name="TransportDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContainerNo" Type="Int32" />
+          <Property Name="SealNo" Type="Int32" />
+          <Property Name="BrandId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="wMaterial" />
+          </Key>
+          <Property Name="wMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sMaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sExt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MaterialEntry">
+          <Key>
+            <PropertyRef Name="wMaterialId" />
+          </Key>
+          <Property Name="wMaterialId" Type="Int32" Nullable="false" />
+          <Property Name="wTruckId" Type="Int32" />
+          <Property Name="wMaterial" Type="Int32" />
+          <Property Name="sCompany" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wOwnType" Type="Int32" />
+          <Property Name="sName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sGrade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sChalan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sIDNO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dRentFrom" Type="DateTime" Precision="0" />
+          <Property Name="dRentTo" Type="DateTime" Precision="0" />
+          <Property Name="sQuantity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sWareHouse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sVisualCheck" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sRemark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wSupplierId" Type="Int32" />
+          <Property Name="wMaterialType" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MaterialOther">
+          <Key>
+            <PropertyRef Name="wOtherId" />
+          </Key>
+          <Property Name="wOtherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wSupplierId" Type="Int32" />
+          <Property Name="TruckNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Quatity" Type="Int32" />
+          <Property Name="QType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChalanNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CheckBy" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="wDateTime" Type="DateTime" Precision="7" />
+          <Property Name="Stores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PackingMaterial">
+          <Key>
+            <PropertyRef Name="wPackingId" />
+          </Key>
+          <Property Name="wPackingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountOf" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaterialType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SuplierId" Type="Int32" />
+          <Property Name="TruckNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Quatity" Type="Int32" />
+          <Property Name="QType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="WareHouse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChalanNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CheckBy" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="wDateTime" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="PDCavity">
+          <Key>
+            <PropertyRef Name="wPhyCavityId" />
+          </Key>
+          <Property Name="wPhyCavityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wPhyDimId" Type="Int32" />
+          <Property Name="DimWeight" Type="Int32" />
+          <Property Name="NeckId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TOTHeight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NeckOd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BodyDia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bend" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WallThickness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PolariseLight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wCavityNo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PhysicalReport">
+          <Key>
+            <PropertyRef Name="wPhyDimId" />
+          </Key>
+          <Property Name="wPhyDimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="wMCNo" Type="Int32" />
+          <Property Name="wPerSize" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wShiftID" Type="Int32" />
+          <Property Name="wMouldNo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="wPosId" />
+          </Key>
+          <Property Name="wPosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Position1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sExtra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProdHandling">
+          <Key>
+            <PropertyRef Name="wHandlingId" />
+          </Key>
+          <Property Name="wHandlingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wProductionId" Type="Int32" />
+          <Property Name="wBoxes" Type="Int32" />
+          <Property Name="wTransferBoxes" Type="Int32" />
+          <Property Name="wGoods" Type="Int32" />
+          <Property Name="dManufDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="ProdLog">
+          <Key>
+            <PropertyRef Name="wLogId" />
+          </Key>
+          <Property Name="wLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wProductionId" Type="Int32" />
+          <Property Name="wLogDate" Type="DateTime" Precision="0" />
+          <Property Name="MachineHpte" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="partWt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sShift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CycleTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PerformAvg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProdKg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Rejection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Lumps" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PetMaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DownTime" Type="DateTime" Precision="3" />
+          <Property Name="LogTime" Type="DateTime" Precision="3" />
+          <Property Name="ColTDS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ColPH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ColTemp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Plant" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Temprature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Humidity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wShiftIncharge" Type="Int32" />
+          <Property Name="wManager" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Production">
+          <Key>
+            <PropertyRef Name="wProductionId" />
+          </Key>
+          <Property Name="wProductionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wMaterialId" Type="Int32" />
+          <Property Name="wIdNO" Type="Int32" />
+          <Property Name="wDate" Type="DateTime" Precision="0" />
+          <Property Name="sSize" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sGrade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="M1rejection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="M1Lumps" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="M2rejection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="M2Lumps" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wPrepairedBy" Type="Int32" />
+          <Property Name="wReceivedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RawMaterial">
+          <Key>
+            <PropertyRef Name="wMaterialId" />
+          </Key>
+          <Property Name="wMaterialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountOf" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChalanNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wSupplierId" Type="Int32" />
+          <Property Name="TruckNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BagQuantity" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="BagNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WareHouse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CheckBy" Type="Int32" />
+          <Property Name="VisualCheckBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="wDateTime" Type="DateTime" Precision="7" />
+          <Property Name="BrandId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ReportCavity">
+          <Key>
+            <PropertyRef Name="wCavityId" />
+          </Key>
+          <Property Name="wCavityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wReportId" Type="Int32" />
+          <Property Name="wCavityNo" Type="Int32" />
+          <Property Name="wShiftId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DimWeight" Type="Int32" />
+          <Property Name="TOTHeight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NeckId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NeckOd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BodyDia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bend" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WallThickness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PolariseLight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Weight1" Type="Int32" />
+          <Property Name="Weight2" Type="Int32" />
+          <Property Name="sExtra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="wReportId" />
+          </Key>
+          <Property Name="wReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Product" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wProductionId" Type="Int32" />
+          <Property Name="ReportDate" Type="DateTime" Precision="0" />
+          <Property Name="MouldID" Type="Int32" />
+          <Property Name="PreformSize" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="colour" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sExtra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wDefectCodeId" Type="Int32" />
+          <Property Name="InspectedBy" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ResinMoistrRpt">
+          <Key>
+            <PropertyRef Name="wRsinRptId" />
+          </Key>
+          <Property Name="wRsinRptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="resinBagNo" Type="Int32" />
+          <Property Name="resinGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="machineNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Specification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CheckBy" Type="Int32" />
+          <Property Name="freqPerLot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="wDateTime" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="wShiftId" />
+          </Key>
+          <Property Name="wShiftId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sShift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sExtra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="station">
+          <Key>
+            <PropertyRef Name="wStationId" />
+          </Key>
+          <Property Name="wStationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sStation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sExt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="wStockId" />
+          </Key>
+          <Property Name="wStockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Particulares" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HPN" Type="Int32" />
+          <Property Name="Locker" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BoxNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="wSupplierId" />
+          </Key>
+          <Property Name="wSupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sSupplier" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sExt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="truck">
+          <Key>
+            <PropertyRef Name="wTruckId" />
+          </Key>
+          <Property Name="wTruckId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wTruckNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wContainerNo" Type="Int32" />
+          <Property Name="wSealNo" Type="Int32" />
+          <Property Name="sBrandName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sQuantity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wStationId" Type="Int32" />
+          <Property Name="wUserId" Type="Int32" />
+          <Property Name="sdesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sExt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vdate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="wUserId" />
+          </Key>
+          <Property Name="wUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wRoleId" Type="Int32" Nullable="false" />
+          <Property Name="timestamp" Type="DateTime" Precision="0" />
+          <Property Name="sEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="wRoleId" />
+          </Key>
+          <Property Name="wRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sRole" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wLevel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VCavity">
+          <Key>
+            <PropertyRef Name="wVCavityId" />
+          </Key>
+          <Property Name="wVCavityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wVCavityNo" Type="Int32" />
+          <Property Name="sStatus1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sStatus2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wVisualId" Type="Int32" />
+          <Property Name="wDefectCodeId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VisualReport">
+          <Key>
+            <PropertyRef Name="wVisualId" />
+          </Key>
+          <Property Name="wVisualId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wMCno" Type="Int32" />
+          <Property Name="sProduct" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="wShiftId" Type="Int32" />
+          <Property Name="wDefectCodeId" Type="Int32" />
+          <Property Name="wInspectedId" Type="Int32" />
+          <Property Name="sNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="aspet_devEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Colors" EntityType="Self.Color" />
+          <EntitySet Name="DailyQtyComplaintRpts" EntityType="Self.DailyQtyComplaintRpt" />
+          <EntitySet Name="DailyWeights" EntityType="Self.DailyWeight" />
+          <EntitySet Name="DefectCodes" EntityType="Self.DefectCode" />
+          <EntitySet Name="DWCavities" EntityType="Self.DWCavity" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="LogSheets" EntityType="Self.LogSheet" />
+          <EntitySet Name="Machineries" EntityType="Self.Machinery" />
+          <EntitySet Name="Materials" EntityType="Self.Material" />
+          <EntitySet Name="MaterialEntries" EntityType="Self.MaterialEntry" />
+          <EntitySet Name="MaterialOthers" EntityType="Self.MaterialOther" />
+          <EntitySet Name="PackingMaterials" EntityType="Self.PackingMaterial" />
+          <EntitySet Name="PDCavities" EntityType="Self.PDCavity" />
+          <EntitySet Name="PhysicalReports" EntityType="Self.PhysicalReport" />
+          <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="ProdHandlings" EntityType="Self.ProdHandling" />
+          <EntitySet Name="ProdLogs" EntityType="Self.ProdLog" />
+          <EntitySet Name="Productions" EntityType="Self.Production" />
+          <EntitySet Name="RawMaterials" EntityType="Self.RawMaterial" />
+          <EntitySet Name="ReportCavities" EntityType="Self.ReportCavity" />
+          <EntitySet Name="Reports" EntityType="Self.Report" />
+          <EntitySet Name="ResinMoistrRpts" EntityType="Self.ResinMoistrRpt" />
+          <EntitySet Name="Shifts" EntityType="Self.Shift" />
+          <EntitySet Name="stations" EntityType="Self.station" />
+          <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="suppliers" EntityType="Self.supplier" />
+          <EntitySet Name="trucks" EntityType="Self.truck" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="VCavities" EntityType="Self.VCavity" />
+          <EntitySet Name="VisualReports" EntityType="Self.VisualReport" />
+          <EntitySet Name="BagConsumptions" EntityType="AspetProdModel.BagConsumption" />
+        </EntityContainer>
+        <EntityType Name="BagConsumption">
+          <Key>
+            <PropertyRef Name="wBagId" />
+          </Key>
+          <Property Name="wBagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="sMaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="wMaterialId" Type="Int32" />
+          <Property Name="wShift" Type="Int32" />
+          <Property Name="wShiftUserId" Type="Int32" />
+          <Property Name="wCheckedBy" Type="Int32" />
+          <Property Name="wOperator" Type="Int32" />
+          <Property Name="sType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MachineNo" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AspetProdModelStoreContainer" CdmEntityContainer="aspet_devEntities">
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="AspetProdModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="wBrandId" ColumnName="wBrandId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colors">
+            <EntityTypeMapping TypeName="AspetProdModel.Color">
+              <MappingFragment StoreEntitySet="Color">
+                <ScalarProperty Name="wColorId" ColumnName="wColorId" />
+                <ScalarProperty Name="ColorShade" ColumnName="ColorShade" />
+                <ScalarProperty Name="wSupplierId" ColumnName="wSupplierId" />
+                <ScalarProperty Name="TruckNo" ColumnName="TruckNo" />
+                <ScalarProperty Name="Quatity" ColumnName="Quatity" />
+                <ScalarProperty Name="QType" ColumnName="QType" />
+                <ScalarProperty Name="NoBarrels" ColumnName="NoBarrels" />
+                <ScalarProperty Name="ChalanNo" ColumnName="ChalanNo" />
+                <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
+                <ScalarProperty Name="CheckBy" ColumnName="CheckBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="wDateTime" ColumnName="wDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyQtyComplaintRpts">
+            <EntityTypeMapping TypeName="AspetProdModel.DailyQtyComplaintRpt">
+              <MappingFragment StoreEntitySet="DailyQtyComplaintRpt">
+                <ScalarProperty Name="wQtyComplantId" ColumnName="wQtyComplantId" />
+                <ScalarProperty Name="wShiftId" ColumnName="wShiftId" />
+                <ScalarProperty Name="sShift" ColumnName="sShift" />
+                <ScalarProperty Name="wMCno" ColumnName="wMCno" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="Troubles" ColumnName="Troubles" />
+                <ScalarProperty Name="CheckBy" ColumnName="CheckBy" />
+                <ScalarProperty Name="ReportingTo" ColumnName="ReportingTo" />
+                <ScalarProperty Name="ReportingTime" ColumnName="ReportingTime" />
+                <ScalarProperty Name="wInspectedId" ColumnName="wInspectedId" />
+                <ScalarProperty Name="solvedTime" ColumnName="solvedTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="wDateTime" ColumnName="wDateTime" />
+                <ScalarProperty Name="sRemarks" ColumnName="sRemarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyWeights">
+            <EntityTypeMapping TypeName="AspetProdModel.DailyWeight">
+              <MappingFragment StoreEntitySet="DailyWeight">
+                <ScalarProperty Name="wDWId" ColumnName="wDWId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="sProduct" ColumnName="sProduct" />
+                <ScalarProperty Name="colour" ColumnName="colour" />
+                <ScalarProperty Name="ACheckedBy" ColumnName="ACheckedBy" />
+                <ScalarProperty Name="BCheckedBy" ColumnName="BCheckedBy" />
+                <ScalarProperty Name="CCheckedBy" ColumnName="CCheckedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DefectCodes">
+            <EntityTypeMapping TypeName="AspetProdModel.DefectCode">
+              <MappingFragment StoreEntitySet="DefectCode">
+                <ScalarProperty Name="wDefectCodeId" ColumnName="wDefectCodeId" />
+                <ScalarProperty Name="Defect" ColumnName="Defect" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DWCavities">
+            <EntityTypeMapping TypeName="AspetProdModel.DWCavity">
+              <MappingFragment StoreEntitySet="DWCavity">
+                <ScalarProperty Name="wCavityId" ColumnName="wCavityId" />
+                <ScalarProperty Name="wCavityNo" ColumnName="wCavityNo" />
+                <ScalarProperty Name="wDWId" ColumnName="wDWId" />
+                <ScalarProperty Name="AWeight" ColumnName="AWeight" />
+                <ScalarProperty Name="BWeight" ColumnName="BWeight" />
+                <ScalarProperty Name="CWeight" ColumnName="CWeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="AspetProdModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="wEmployeeId" ColumnName="wEmployeeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Ciity" ColumnName="Ciity" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="wPosId" ColumnName="wPosId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogSheets">
+            <EntityTypeMapping TypeName="AspetProdModel.LogSheet">
+              <MappingFragment StoreEntitySet="LogSheet">
+                <ScalarProperty Name="wSheeetId" ColumnName="wSheeetId" />
+                <ScalarProperty Name="wLogId" ColumnName="wLogId" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="RegretionR" ColumnName="RegretionR" />
+                <ScalarProperty Name="RegrationL" ColumnName="RegrationL" />
+                <ScalarProperty Name="ProcessS" ColumnName="ProcessS" />
+                <ScalarProperty Name="ProcessA" ColumnName="ProcessA" />
+                <ScalarProperty Name="DewS" ColumnName="DewS" />
+                <ScalarProperty Name="DewA" ColumnName="DewA" />
+                <ScalarProperty Name="DHDewS" ColumnName="DHDewS" />
+                <ScalarProperty Name="DHDewA" ColumnName="DHDewA" />
+                <ScalarProperty Name="PressureIn" ColumnName="PressureIn" />
+                <ScalarProperty Name="PressureOUT" ColumnName="PressureOUT" />
+                <ScalarProperty Name="PressureLp" ColumnName="PressureLp" />
+                <ScalarProperty Name="PressureHp" ColumnName="PressureHp" />
+                <ScalarProperty Name="CoolingTemp" ColumnName="CoolingTemp" />
+                <ScalarProperty Name="ACPressureLOad" ColumnName="ACPressureLOad" />
+                <ScalarProperty Name="ACPressureUnload" ColumnName="ACPressureUnload" />
+                <ScalarProperty Name="CTPTExmo" ColumnName="CTPTExmo" />
+                <ScalarProperty Name="CTPBar" ColumnName="CTPBar" />
+                <ScalarProperty Name="PhaseVolts" ColumnName="PhaseVolts" />
+                <ScalarProperty Name="ShoutConter" ColumnName="ShoutConter" />
+                <ScalarProperty Name="Quality" ColumnName="Quality" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Machineries">
+            <EntityTypeMapping TypeName="AspetProdModel.Machinery">
+              <MappingFragment StoreEntitySet="Machinery">
+                <ScalarProperty Name="wMachineryId" ColumnName="wMachineryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="wSupplierId" ColumnName="wSupplierId" />
+                <ScalarProperty Name="TruckNo" ColumnName="TruckNo" />
+                <ScalarProperty Name="Quatity" ColumnName="Quatity" />
+                <ScalarProperty Name="QType" ColumnName="QType" />
+                <ScalarProperty Name="ChalanNo" ColumnName="ChalanNo" />
+                <ScalarProperty Name="CheckBy" ColumnName="CheckBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="wDateTime" ColumnName="wDateTime" />
+                <ScalarProperty Name="TransportDetails" ColumnName="TransportDetails" />
+                <ScalarProperty Name="ContainerNo" ColumnName="ContainerNo" />
+                <ScalarProperty Name="SealNo" ColumnName="SealNo" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materials">
+            <EntityTypeMapping TypeName="AspetProdModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="wMaterial" ColumnName="wMaterial" />
+                <ScalarProperty Name="sMaterial" ColumnName="sMaterial" />
+                <ScalarProperty Name="sExt" ColumnName="sExt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialEntries">
+            <EntityTypeMapping TypeName="AspetProdModel.MaterialEntry">
+              <MappingFragment StoreEntitySet="MaterialEntry">
+                <ScalarProperty Name="wMaterialId" ColumnName="wMaterialId" />
+                <ScalarProperty Name="wTruckId" ColumnName="wTruckId" />
+                <ScalarProperty Name="wMaterial" ColumnName="wMaterial" />
+                <ScalarProperty Name="sCompany" ColumnName="sCompany" />
+                <ScalarProperty Name="wOwnType" ColumnName="wOwnType" />
+                <ScalarProperty Name="sName" ColumnName="sName" />
+                <ScalarProperty Name="sGrade" ColumnName="sGrade" />
+                <ScalarProperty Name="sChalan" ColumnName="sChalan" />
+                <ScalarProperty Name="sIDNO" ColumnName="sIDNO" />
+                <ScalarProperty Name="dRentFrom" ColumnName="dRentFrom" />
+                <ScalarProperty Name="dRentTo" ColumnName="dRentTo" />
+                <ScalarProperty Name="sQuantity" ColumnName="sQuantity" />
+                <ScalarProperty Name="sTotal" ColumnName="sTotal" />
+                <ScalarProperty Name="sWareHouse" ColumnName="sWareHouse" />
+                <ScalarProperty Name="sVisualCheck" ColumnName="sVisualCheck" />
+                <ScalarProperty Name="sRemark" ColumnName="sRemark" />
+                <ScalarProperty Name="wSupplierId" ColumnName="wSupplierId" />
+                <ScalarProperty Name="wMaterialType" ColumnName="wMaterialType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialOthers">
+            <EntityTypeMapping TypeName="AspetProdModel.MaterialOther">
+              <MappingFragment StoreEntitySet="MaterialOther">
+                <ScalarProperty Name="wOtherId" ColumnName="wOtherId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="wSupplierId" ColumnName="wSupplierId" />
+                <ScalarProperty Name="TruckNo" ColumnName="TruckNo" />
+                <ScalarProperty Name="Quatity" ColumnName="Quatity" />
+                <ScalarProperty Name="QType" ColumnName="QType" />
+                <ScalarProperty Name="ChalanNo" ColumnName="ChalanNo" />
+                <ScalarProperty Name="CheckBy" ColumnName="CheckBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="wDateTime" ColumnName="wDateTime" />
+                <ScalarProperty Name="Stores" ColumnName="Stores" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PackingMaterials">
+            <EntityTypeMapping TypeName="AspetProdModel.PackingMaterial">
+              <MappingFragment StoreEntitySet="PackingMaterial">
+                <ScalarProperty Name="wPackingId" ColumnName="wPackingId" />
+                <ScalarProperty Name="sType" ColumnName="sType" />
+                <ScalarProperty Name="AccountOf" ColumnName="AccountOf" />
+                <ScalarProperty Name="MaterialType" ColumnName="MaterialType" />
+                <ScalarProperty Name="SuplierId" ColumnName="SuplierId" />
+                <ScalarProperty Name="TruckNo" ColumnName="TruckNo" />
+                <ScalarProperty Name="Quatity" ColumnName="Quatity" />
+                <ScalarProperty Name="QType" ColumnName="QType" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
+                <ScalarProperty Name="ChalanNo" ColumnName="ChalanNo" />
+                <ScalarProperty Name="CheckBy" ColumnName="CheckBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="wDateTime" ColumnName="wDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PDCavities">
+            <EntityTypeMapping TypeName="AspetProdModel.PDCavity">
+              <MappingFragment StoreEntitySet="PDCavity">
+                <ScalarProperty Name="wPhyCavityId" ColumnName="wPhyCavityId" />
+                <ScalarProperty Name="wPhyDimId" ColumnName="wPhyDimId" />
+                <ScalarProperty Name="DimWeight" ColumnName="DimWeight" />
+                <ScalarProperty Name="NeckId" ColumnName="NeckId" />
+                <ScalarProperty Name="TOTHeight" ColumnName="TOTHeight" />
+                <ScalarProperty Name="NeckOd" ColumnName="NeckOd" />
+                <ScalarProperty Name="BodyDia" ColumnName="BodyDia" />
+                <ScalarProperty Name="Bend" ColumnName="Bend" />
+                <ScalarProperty Name="WallThickness" ColumnName="WallThickness" />
+                <ScalarProperty Name="PolariseLight" ColumnName="PolariseLight" />
+                <ScalarProperty Name="wCavityNo" ColumnName="wCavityNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhysicalReports">
+            <EntityTypeMapping TypeName="AspetProdModel.PhysicalReport">
+              <MappingFragment StoreEntitySet="PhysicalReport">
+                <ScalarProperty Name="wPhyDimId" ColumnName="wPhyDimId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="wMCNo" ColumnName="wMCNo" />
+                <ScalarProperty Name="wPerSize" ColumnName="wPerSize" />
+                <ScalarProperty Name="wShiftID" ColumnName="wShiftID" />
+                <ScalarProperty Name="wMouldNo" ColumnName="wMouldNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="AspetProdModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="wPosId" ColumnName="wPosId" />
+                <ScalarProperty Name="Position1" ColumnName="Position" />
+                <ScalarProperty Name="sExtra" ColumnName="sExtra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdHandlings">
+            <EntityTypeMapping TypeName="AspetProdModel.ProdHandling">
+              <MappingFragment StoreEntitySet="ProdHandling">
+                <ScalarProperty Name="wHandlingId" ColumnName="wHandlingId" />
+                <ScalarProperty Name="wProductionId" ColumnName="wProductionId" />
+                <ScalarProperty Name="wBoxes" ColumnName="wBoxes" />
+                <ScalarProperty Name="wTransferBoxes" ColumnName="wTransferBoxes" />
+                <ScalarProperty Name="wGoods" ColumnName="wGoods" />
+                <ScalarProperty Name="dManufDate" ColumnName="dManufDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdLogs">
+            <EntityTypeMapping TypeName="AspetProdModel.ProdLog">
+              <MappingFragment StoreEntitySet="ProdLog">
+                <ScalarProperty Name="wLogId" ColumnName="wLogId" />
+                <ScalarProperty Name="wProductionId" ColumnName="wProductionId" />
+                <ScalarProperty Name="wLogDate" ColumnName="wLogDate" />
+                <ScalarProperty Name="MachineHpte" ColumnName="MachineHpte" />
+                <ScalarProperty Name="partWt" ColumnName="partWt" />
+                <ScalarProperty Name="sShift" ColumnName="sShift" />
+                <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+                <ScalarProperty Name="PerformAvg" ColumnName="PerformAvg" />
+                <ScalarProperty Name="ProdKg" ColumnName="ProdKg" />
+                <ScalarProperty Name="Rejection" ColumnName="Rejection" />
+                <ScalarProperty Name="Lumps" ColumnName="Lumps" />
+                <ScalarProperty Name="PetMaterial" ColumnName="PetMaterial" />
+                <ScalarProperty Name="DownTime" ColumnName="DownTime" />
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+                <ScalarProperty Name="ColTDS" ColumnName="ColTDS" />
+                <ScalarProperty Name="ColPH" ColumnName="ColPH" />
+                <ScalarProperty Name="ColTemp" ColumnName="ColTemp" />
+                <ScalarProperty Name="Plant" ColumnName="Plant" />
+                <ScalarProperty Name="Temprature" ColumnName="Temprature" />
+                <ScalarProperty Name="Humidity" ColumnName="Humidity" />
+                <ScalarProperty Name="sRemarks" ColumnName="sRemarks" />
+                <ScalarProperty Name="wShiftIncharge" ColumnName="wShiftIncharge" />
+                <ScalarProperty Name="wManager" ColumnName="wManager" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productions">
+            <EntityTypeMapping TypeName="AspetProdModel.Production">
+              <MappingFragment StoreEntitySet="Production">
+                <ScalarProperty Name="wProductionId" ColumnName="wProductionId" />
+                <ScalarProperty Name="wMaterialId" ColumnName="wMaterialId" />
+                <ScalarProperty Name="wIdNO" ColumnName="wIdNO" />
+                <ScalarProperty Name="wDate" ColumnName="wDate" />
+                <ScalarProperty Name="sSize" ColumnName="sSize" />
+                <ScalarProperty Name="sGrade" ColumnName="sGrade" />
+                <ScalarProperty Name="M1rejection" ColumnName="M1rejection" />
+                <ScalarProperty Name="M1Lumps" ColumnName="M1Lumps" />
+                <ScalarProperty Name="M2rejection" ColumnName="M2rejection" />
+                <ScalarProperty Name="M2Lumps" ColumnName="M2Lumps" />
+                <ScalarProperty Name="wPrepairedBy" ColumnName="wPrepairedBy" />
+                <ScalarProperty Name="wReceivedBy" ColumnName="wReceivedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RawMaterials">
+            <EntityTypeMapping TypeName="AspetProdModel.RawMaterial">
+              <MappingFragment StoreEntitySet="RawMaterial">
+                <ScalarProperty Name="wMaterialId" ColumnName="wMaterialId" />
+                <ScalarProperty Name="sType" ColumnName="sType" />
+                <ScalarProperty Name="AccountOf" ColumnName="AccountOf" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="ChalanNo" ColumnName="ChalanNo" />
+                <ScalarProperty Name="wSupplierId" ColumnName="wSupplierId" />
+                <ScalarProperty Name="TruckNo" ColumnName="TruckNo" />
+                <ScalarProperty Name="BagQuantity" ColumnName="BagQuantity" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="BagNo" ColumnName="BagNo" />
+                <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
+                <ScalarProperty Name="CheckBy" ColumnName="CheckBy" />
+                <ScalarProperty Name="VisualCheckBy" ColumnName="VisualCheckBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="wDateTime" ColumnName="wDateTime" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportCavities">
+            <EntityTypeMapping TypeName="AspetProdModel.ReportCavity">
+              <MappingFragment StoreEntitySet="ReportCavity">
+                <ScalarProperty Name="wCavityId" ColumnName="wCavityId" />
+                <ScalarProperty Name="wReportId" ColumnName="wReportId" />
+                <ScalarProperty Name="wCavityNo" ColumnName="wCavityNo" />
+                <ScalarProperty Name="wShiftId" ColumnName="wShiftId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DimWeight" ColumnName="DimWeight" />
+                <ScalarProperty Name="TOTHeight" ColumnName="TOTHeight" />
+                <ScalarProperty Name="NeckId" ColumnName="NeckId" />
+                <ScalarProperty Name="NeckOd" ColumnName="NeckOd" />
+                <ScalarProperty Name="BodyDia" ColumnName="BodyDia" />
+                <ScalarProperty Name="Bend" ColumnName="Bend" />
+                <ScalarProperty Name="WallThickness" ColumnName="WallThickness" />
+                <ScalarProperty Name="PolariseLight" ColumnName="PolariseLight" />
+                <ScalarProperty Name="Weight1" ColumnName="Weight1" />
+                <ScalarProperty Name="Weight2" ColumnName="Weight2" />
+                <ScalarProperty Name="sExtra" ColumnName="sExtra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="AspetProdModel.Report">
+              <MappingFragment StoreEntitySet="Reports">
+                <ScalarProperty Name="wReportId" ColumnName="wReportId" />
+                <ScalarProperty Name="MC" ColumnName="MC" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="wProductionId" ColumnName="wProductionId" />
+                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+                <ScalarProperty Name="MouldID" ColumnName="MouldID" />
+                <ScalarProperty Name="PreformSize" ColumnName="PreformSize" />
+                <ScalarProperty Name="colour" ColumnName="colour" />
+                <ScalarProperty Name="sExtra" ColumnName="sExtra" />
+                <ScalarProperty Name="wDefectCodeId" ColumnName="wDefectCodeId" />
+                <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResinMoistrRpts">
+            <EntityTypeMapping TypeName="AspetProdModel.ResinMoistrRpt">
+              <MappingFragment StoreEntitySet="ResinMoistrRpt">
+                <ScalarProperty Name="wRsinRptId" ColumnName="wRsinRptId" />
+                <ScalarProperty Name="resinBagNo" ColumnName="resinBagNo" />
+                <ScalarProperty Name="resinGrade" ColumnName="resinGrade" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="machineNo" ColumnName="machineNo" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="CheckBy" ColumnName="CheckBy" />
+                <ScalarProperty Name="freqPerLot" ColumnName="freqPerLot" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="wDateTime" ColumnName="wDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shifts">
+            <EntityTypeMapping TypeName="AspetProdModel.Shift">
+              <MappingFragment StoreEntitySet="Shift">
+                <ScalarProperty Name="wShiftId" ColumnName="wShiftId" />
+                <ScalarProperty Name="sShift" ColumnName="sShift" />
+                <ScalarProperty Name="sExtra" ColumnName="sExtra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stations">
+            <EntityTypeMapping TypeName="AspetProdModel.station">
+              <MappingFragment StoreEntitySet="stations">
+                <ScalarProperty Name="wStationId" ColumnName="wStationId" />
+                <ScalarProperty Name="sStation" ColumnName="sStation" />
+                <ScalarProperty Name="sExt" ColumnName="sExt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="AspetProdModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="wStockId" ColumnName="wStockId" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Particulares" ColumnName="Particulares" />
+                <ScalarProperty Name="HPN" ColumnName="HPN" />
+                <ScalarProperty Name="Locker" ColumnName="Locker" />
+                <ScalarProperty Name="BoxNo" ColumnName="BoxNo" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suppliers">
+            <EntityTypeMapping TypeName="AspetProdModel.supplier">
+              <MappingFragment StoreEntitySet="supplier">
+                <ScalarProperty Name="wSupplierId" ColumnName="wSupplierId" />
+                <ScalarProperty Name="sSupplier" ColumnName="sSupplier" />
+                <ScalarProperty Name="sExt" ColumnName="sExt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trucks">
+            <EntityTypeMapping TypeName="AspetProdModel.truck">
+              <MappingFragment StoreEntitySet="truck">
+                <ScalarProperty Name="wTruckId" ColumnName="wTruckId" />
+                <ScalarProperty Name="wTruckNo" ColumnName="wTruckNo" />
+                <ScalarProperty Name="wContainerNo" ColumnName="wContainerNo" />
+                <ScalarProperty Name="wSealNo" ColumnName="wSealNo" />
+                <ScalarProperty Name="sBrandName" ColumnName="sBrandName" />
+                <ScalarProperty Name="sQuantity" ColumnName="sQuantity" />
+                <ScalarProperty Name="wStationId" ColumnName="wStationId" />
+                <ScalarProperty Name="wUserId" ColumnName="wUserId" />
+                <ScalarProperty Name="sdesc" ColumnName="sdesc" />
+                <ScalarProperty Name="sExt" ColumnName="sExt" />
+                <ScalarProperty Name="vdate" ColumnName="vdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AspetProdModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="wUserId" ColumnName="wUserId" />
+                <ScalarProperty Name="sUser" ColumnName="sUser" />
+                <ScalarProperty Name="sPassword" ColumnName="sPassword" />
+                <ScalarProperty Name="wRoleId" ColumnName="wRoleId" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="sEmail" ColumnName="sEmail" />
+                <ScalarProperty Name="sNotes" ColumnName="sNotes" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="AspetProdModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="wRoleId" ColumnName="wRoleId" />
+                <ScalarProperty Name="sRole" ColumnName="sRole" />
+                <ScalarProperty Name="wLevel" ColumnName="wLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VCavities">
+            <EntityTypeMapping TypeName="AspetProdModel.VCavity">
+              <MappingFragment StoreEntitySet="VCavity">
+                <ScalarProperty Name="wVCavityId" ColumnName="wVCavityId" />
+                <ScalarProperty Name="wVCavityNo" ColumnName="wVCavityNo" />
+                <ScalarProperty Name="sStatus1" ColumnName="sStatus1" />
+                <ScalarProperty Name="sStatus2" ColumnName="sStatus2" />
+                <ScalarProperty Name="wVisualId" ColumnName="wVisualId" />
+                <ScalarProperty Name="wDefectCodeId" ColumnName="wDefectCodeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisualReports">
+            <EntityTypeMapping TypeName="AspetProdModel.VisualReport">
+              <MappingFragment StoreEntitySet="VisualReport">
+                <ScalarProperty Name="wVisualId" ColumnName="wVisualId" />
+                <ScalarProperty Name="wMCno" ColumnName="wMCno" />
+                <ScalarProperty Name="sProduct" ColumnName="sProduct" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="wShiftId" ColumnName="wShiftId" />
+                <ScalarProperty Name="wDefectCodeId" ColumnName="wDefectCodeId" />
+                <ScalarProperty Name="wInspectedId" ColumnName="wInspectedId" />
+                <ScalarProperty Name="sNotes" ColumnName="sNotes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BagConsumptions">
+            <EntityTypeMapping TypeName="AspetProdModel.BagConsumption">
+              <MappingFragment StoreEntitySet="BagConsumption">
+                <ScalarProperty Name="MachineNo" ColumnName="MachineNo" />
+                <ScalarProperty Name="sType" ColumnName="sType" />
+                <ScalarProperty Name="wOperator" ColumnName="wOperator" />
+                <ScalarProperty Name="wCheckedBy" ColumnName="wCheckedBy" />
+                <ScalarProperty Name="wShiftUserId" ColumnName="wShiftUserId" />
+                <ScalarProperty Name="wShift" ColumnName="wShift" />
+                <ScalarProperty Name="wMaterialId" ColumnName="wMaterialId" />
+                <ScalarProperty Name="sMaterial" ColumnName="sMaterial" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="wBagId" ColumnName="wBagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

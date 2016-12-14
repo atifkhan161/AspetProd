@@ -1,0 +1,13 @@
+﻿<input type="text" ng-class="calendarClass"
+        datepicker-append-to-body="false"
+        uib-datepicker-popup="MM-dd-yyyy" ng-model="modelField"
+        name="{{dateName}}" is-open="dateSelection"
+        datepicker-options="configOptions"
+        ng-pattern="/^\d{2}-\d{2}-\d{4}$/"        
+        placeholder="mm-dd-yyyy"
+        min-date="minDate" max-date="maxDate" ng-change="changeDate()"
+        close-text="Close" ng-focus="onFocus()" ng-required={{isRequired}} />
+<span ng-class="iconClass" input-group-btn">
+    <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+</span>
+
